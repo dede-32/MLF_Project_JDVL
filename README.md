@@ -39,8 +39,7 @@ Our submission pipeline employs Test-Time Augmentation combined with Soft Voting
 ## Results and Evaluation
 The ensemble demonstrates exceptional stability across all classes. Below is the Validation Confusion Matrix, which visualizes the ensemble's performance on the 10% hold-out data.
 
-![Confusion Matrix](confusion_matrix.png)
-*(Note: Upload your generated confusion_matrix.png to the repository root for this image to render).*
+![Confusion Matrix](pictures/confusion_matrix.png)
 
 **Key Observations from Validation:**
 * **Empty Room (0 Persons):** Near-perfect classification. The physical zero baseline successfully prevents false positives from background noise.
