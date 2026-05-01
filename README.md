@@ -2,7 +2,7 @@
 
 This repository contains the final solution for a machine learning competition project developed for the Machine Learning (MLF) course. The primary objective was to design a robust computer vision model capable of estimating the exact number of people (0, 1, 2, or 3) present in a room based solely on 2D radar scans.
 
-With this solution, we achieved an accuracy of **~95.76%**, securing a 13th placement on the Kaggle Leaderboard.
+With this solution, we achieved an accuracy of **~95.76%**, securing a 13th place on the Kaggle Leaderboard.
 
 ![Kaggle Leaderboard Result](pictures/kaggle_leaderboard.png)
 
