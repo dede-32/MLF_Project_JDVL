@@ -24,7 +24,27 @@ To maximize generalization, we discarded the single-model approach in favor of a
 2. **The Macro-Expert (Spatial Expert):** Replaces the initial layers with larger 5x5 filters. This increases the receptive field early in the network, allowing it to detect broader spatial anomalies and scattered clusters.
 3. **The Deep Analyst (Deep Expert):** Uses 3x3 filters but features a massively expanded fully connected block (512 neurons) combined with aggressive Dropout (0.6) for more complex decision logic.
 
-![Architecture Diagram](pictures/architecture_diagram.png)
+```mermaid
+graph TD
+    Data[Raw Radar Scan] --> TTA{Test-Time Augmentation}
+    
+    TTA -->|Original Image| E1
+    TTA -->|Original Image| E2
+    TTA -->|Original Image| E3
+    
+    TTA -->|Flipped Image| E1
+    TTA -->|Flipped Image| E2
+    TTA -->|Flipped Image| E3
+    
+    E1[Expert 1: Golden Standard] -->|Probabilities| Sum((Sum Soft Votes))
+    E2[Expert 2: Macro-Expert] -->|Probabilities| Sum
+    E3[Expert 3: Deep Analyst] -->|Probabilities| Sum
+    
+    Sum --> Final[Argmax]
+    Final --> Result{Final Class Prediction}
+    
+    classDef expert fill:#f9f9f9,stroke:#333,stroke-width:2px;
+    class E1,E2,E3 expert;
 
 ## Training Methodology
 Preventing overfitting on the radar noise was our primary challenge. We utilized the following techniques during the training phase:
